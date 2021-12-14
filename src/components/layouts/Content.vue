@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <h1>Conteúdo</h1>
-  </div>
+  <Home />
+  <PostJob />
 </template>
 
 <script>
+  import { Home, PostJob } from '../views'
+  
   export default {
-    name: "Content"
+    name: "Content",
+    components: {
+      Home, 
+      PostJob
+    }
   }
 </script>
 
