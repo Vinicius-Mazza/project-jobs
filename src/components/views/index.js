@@ -4,4 +4,4 @@ import PostJob from './PostJob.vue'
 export { 
   Home, 
   PostJob
-} 
+}

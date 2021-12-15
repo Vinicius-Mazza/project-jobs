@@ -6,8 +6,7 @@
 </template>
 
 <script>
-
-import { Top, Content } from "./components/layouts"
+import { Top, Content } from "@/components/layouts"
 
 export default {
   name: "App",
