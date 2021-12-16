@@ -18,14 +18,13 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-4">
-        <Indicator title="Vagas Abertas" :quant="25" bg="bg-dark" color="text-light" />
-      </div>
-      <div class="col-4">
-        <Indicator title="Profissionais Cadastrados" :quant="125" bg="bg-dark" color="text-light" />
-      </div>
-      <div class="col-4">
-        <Indicator title="Visitantes Online" :quant="15" bg="bg-white" color="text-dark" />
+      <div class="col-4" v-for="(indicator, index) of indicators" :key="index">
+        <Indicator 
+          :title="indicator.title" 
+          :quant="indicator.quant" 
+          :bg="indicator.bg" 
+          :color="indicator.color" 
+        />
       </div>
     </div>
   </div>
@@ -78,6 +77,26 @@
             model: 'Presencial',
             type: 'CLT',
             publish: '2021-10-05'
+          }
+        ],
+        indicators: [
+          {
+            title:"Vagas Abertas", 
+            quant: 25,
+            bg: "bg-dark",
+            color: "text-light"
+          },
+          {
+            title:"Profissionais Cadastrados", 
+            quant: 125,
+            bg: "bg-dark",
+            color: "text-light"
+          },
+          {
+            title:"Visitantes Online", 
+            quant: 15,
+            bg: "bg-white",
+            color: "text-dark"
           }
         ]
       }
