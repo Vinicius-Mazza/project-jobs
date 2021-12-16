@@ -7,24 +7,12 @@
     </div>
     <div class="row mt-5" v-for="(job, index) of jobs" :key="index">
       <div class="col">
-        <Job
-          :title="job.title"
-          :description="job.description"
-          :salary="job.salary"
-          :model="job.model"
-          :type="job.type"
-          :publish="job.publish"
-        />
+        <Job v-bind="job" />
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-4" v-for="(indicator, index) of indicators" :key="index">
-        <Indicator 
-          :title="indicator.title" 
-          :quant="indicator.quant" 
-          :bg="indicator.bg" 
-          :color="indicator.color" 
-        />
+        <Indicator v-bind="indicator"/>
       </div>
     </div>
   </div>
