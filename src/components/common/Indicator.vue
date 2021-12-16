@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100 p-5 rounded-3 border bg-dark text-white">
+  <div :class="styleIndicator">
     <p>{{ title }}</p>
     <h2>{{ quant }}</h2>
   </div>
@@ -10,7 +10,14 @@
     name: 'Indicator',
     props: {
       title: String,
-      quant: Number
+      quant: Number,
+      bg: String,
+      color: String
+    },
+    computed: {
+      styleIndicator() {
+        return `h-100 p-5 rounded-3 border ${this.bg} ${this.color}`
+      }
     }
   }
 </script>
