@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Top />
-    <Content />
+    <Top @navigate="component = $event" />
+    <Content :content="component" />
   </div>
 </template>
 
@@ -10,6 +10,9 @@ import { Top, Content } from "@/components/layouts"
 
 export default {
   name: "App",
+  data: () => ({
+    component: 'Home'
+  }),
   components: {
     Content,
     Top
@@ -17,5 +20,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

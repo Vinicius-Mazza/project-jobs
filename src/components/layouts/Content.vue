@@ -1,6 +1,9 @@
 <template>
-  <Home />
-  <PostJob />
+  <div>
+    <keep-alive>
+      <component :is="content" />
+    </keep-alive>
+  </div>
 </template>
 
 <script>
@@ -11,6 +14,9 @@
     components: {
       Home, 
       PostJob
+    },
+    props: {
+      content: String
     }
   }
 </script>
