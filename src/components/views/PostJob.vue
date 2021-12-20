@@ -65,6 +65,9 @@
     }),
     methods: {
       saveJob() {
+        let timeNow = Date.now()
+        let actualDate = new Date(timeNow)
+
         let jobs = JSON.parse(localStorage.getItem('jobs'))
         if(!jobs) jobs = []
 
@@ -74,7 +77,7 @@
           salary: this.salary,
           model: this.model,
           type: this.type,
-          publish: this.publish
+          publish: actualDate.toISOString()
         })
 
         localStorage.setItem('jobs', JSON.stringify(jobs))
