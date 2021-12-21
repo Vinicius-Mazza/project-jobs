@@ -81,6 +81,17 @@
         })
 
         localStorage.setItem('jobs', JSON.stringify(jobs))
+        this.cleanForm()
+      },
+      methods: {
+        cleanForm() {
+          this.title = ''
+          this.description = ''
+          this.salary = 0
+          this.model = ''
+          this.type = ''
+          this.publish = ''
+        }
       }
     }
   }
