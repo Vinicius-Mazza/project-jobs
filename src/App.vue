@@ -1,5 +1,6 @@
 <template>
   <div>
+    <FavoritesJobs />
     <Top @navigate="component = $event" />
     <Content :content="component" />
   </div>
@@ -7,6 +8,7 @@
 
 <script>
 import { Top, Content } from "@/components/layouts"
+import { FavoritesJobs } from "@/components/common"
 
 export default {
   name: "App",
@@ -15,7 +17,8 @@ export default {
   }),
   components: {
     Content,
-    Top
+    Top,
+    FavoritesJobs
   }
 };
 </script>
