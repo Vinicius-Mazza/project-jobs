@@ -81,6 +81,7 @@
         })
 
         localStorage.setItem('jobs', JSON.stringify(jobs))
+        this.emitter.emit('alert')
         this.cleanForm()
       },
       cleanForm() {
