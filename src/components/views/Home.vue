@@ -55,6 +55,11 @@
     },
     activated() {
       this.jobs = JSON.parse(localStorage.getItem("jobs"))
+    },
+    mounted() {
+      this.emitter.on('filter', job => {
+        this.jobs = this.jobs.filter(reg => reg.title.toLowerCase().includes(job.title.toLowerCase()))
+      })
     }
   }
 </script>
