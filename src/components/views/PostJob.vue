@@ -80,9 +80,24 @@
           publish: actualDate.toISOString()
         })
 
-        localStorage.setItem('jobs', JSON.stringify(jobs))
-        this.emitter.emit('alert')
-        this.cleanForm()
+        switch(this.validateForm()) {
+          case true:
+            localStorage.setItem('jobs', JSON.stringify(jobs))
+            this.emitter.emit('alert', {
+              type: 'success',
+              title: `A vaga ${this.title} foi cadastrada com sucesso!`,
+              description: 'Parabéns, a vaga foi cadastrada e poderá ser consultada no sistema'
+            })
+            this.cleanForm()
+            break
+
+          default:
+            this.emitter.emit('alert', {
+              type: 'error',
+              title: '-_- Opsss... Não foi possivel realizar o cadastro',
+              description: 'Parece que você esqueceu de preencher alguma informação.'
+            })
+        }
       },
       cleanForm() {
         this.title = ''
@@ -91,6 +106,24 @@
         this.model = ''
         this.type = ''
         this.publish = ''
+      },
+      makeArray() {
+        let array = []
+        array.push(
+          this.title, 
+          this.description, 
+          this.salary, 
+          this.model, 
+          this.type
+        )
+        return array
+      },
+      validateForm() {
+        let valid = true
+        this.makeArray().forEach(element => {
+          if(element === '') valid = false
+        })
+        return valid
       }
     }
   }
